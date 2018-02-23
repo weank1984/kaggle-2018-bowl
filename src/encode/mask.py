@@ -3,6 +3,7 @@ import cv2
 import math
 import numpy as np
 
+
 def run_length_encode(mask):
     """
     Convert mask image into run-length enconde. 
@@ -11,21 +12,24 @@ def run_length_encode(mask):
     Returns: 
         rle: A list of positions which encoded by run-length.
     """
-    signals = np.where(mask == 1)[0]  # get positions of mask pixels.
+    signals = np.where(mask == 255)[0]  # get positions of mask pixels.
     # brance 0: no mask in image.
     if signals is None:
         print("Check input image, there is mask.")
         return None
-    # print(signals)
+    print(signals)
     head = signals[0]                 # first pixel of run-length encode.
     signal = head                     # recode previous position.
-    rle = [[head,1]]                  # branch 1: only one pixel
+    rle = [[head+1,1]]                  # branch 1: only one pixel
     for dot in signals: 
         if dot - signal > 1:          # check if position is adjacent(nearby)
             rle[-1][1] = signal - head + 1  #branch 2: no adjacent, new encode and update length of previous encode
-            rle.append([dot, 1])      
+            rle.append([dot+1, 1])      
             head = dot               # update head and signal
-        signal = dot                 
+        signal = dot
+    # branch 4: no end signal
+    else:
+        rle[-1][1] = signals[-1] - head + 1   
     return rle
 
 
@@ -37,11 +41,3 @@ def run_length_decode(rle):
     Returns: 
         mask: Mask image.
     """
-
-if __name__ == '__main__':
-    mask = np.array([[0,1,1,1,0],
-                     [1,1,1,1,1],
-                     [0,1,1,1,0],
-                     [0,0,1,0,0]])
-    # mask = np.array([[1]])
-    print(run_length_encode(mask.flatten()))
