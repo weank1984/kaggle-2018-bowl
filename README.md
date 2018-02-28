@@ -12,7 +12,7 @@ Identifing the cell's nuclei is the starting for most analyses. Identifying nucl
 1. [RLF: Run-Length Enconding](https://zh.wikipedia.org/wiki/%E6%B8%B8%E7%A8%8B%E7%BC%96%E7%A0%81)
 2. [U-NET: Convolution Networks for Biomedical Image Segmentation](https://arxiv.org/abs/1505.04597)
 3. [mask R-CNN](https://arxiv.org/pdf/1703.06870.pdf) extends fast-RCNN *
-
+4. [Watershed Transform]https://www.mathworks.com/company/newsletters/articles/the-watershed-transform-strategies-for-image-segmentation.html
 
 # Solution
 1. [end-to-end training with U-Net](https://www.kaggle.com/fabsta/nuclei-segmentation-tensorflow-u-net-0-327-027909/notebook) *LB 0.327*
