@@ -21,4 +21,5 @@ w =L ==0;
 g2 = g & ~w;
 subplot(1,2,2);
 imshow(g2);
+
 title('watershed');

@@ -3,7 +3,7 @@ from skimage.io import imread_collection
 import numpy as np
 
 
-def masks_merge(masks_files):
+def masks_merge(masks_files, label = False):
     """
     Descripition: Merge all mask images into one.
     
@@ -23,12 +23,14 @@ def masks_merge(masks_files):
         print("Masks io error!")
         exit(False)
     image = np.zeros((height,weight), np.uint16)
+    sign = 0 if label else 255
     for mask in masks:
-        image[mask > 0] = 255 # 
+        sign = sign+1 if label else sign
+        image[mask > 0] = sign
     return image
 
 
-def test_image():
+def test_image(label):
     """
     Test image moudle.
     ------------------
@@ -45,7 +47,7 @@ def test_image():
     plt.subplot(1,2,1)
     plt.imshow(origin_image)
     plt.title("origin")
-    img = masks_merge(masks_files)
+    img = masks_merge(masks_files, label)
     plt.subplot(1,2,2)    
     plt.imshow(img)
     plt.title("masks merge")
