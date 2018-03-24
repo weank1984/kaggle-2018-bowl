@@ -7,6 +7,7 @@ import skimage.segmentation
 from encode import *
 
 
+# https://www.kaggle.com/stkbailey/step-by-step-explanation-of-scoring-metric/notebook
 def evalute_score(true_masks, pred_masks):
     """
     Descripition: .

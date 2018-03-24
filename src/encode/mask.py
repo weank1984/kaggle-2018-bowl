@@ -3,6 +3,12 @@ import math
 import numpy as np
 
 
+"""
+#图像编码模块：
+    run_length_encode: 将mask图像转换为rle编码。</br>
+    run_length_decode: 将rle编码还原为mask图像。</br>
+"""
+
 def run_length_encode(mask):
     """
     Descripition: Convert mask image into run-length enconde. 
@@ -30,7 +36,7 @@ def run_length_encode(mask):
             rle.append([dot+1, 1])      
             head = dot                 # update head and signal
         signal = dot
-    # branch 4: no end signal
+    # branch 4: no end-signal
     else:
         rle[-1][1] = signals[-1] - head + 1   
     return rle
