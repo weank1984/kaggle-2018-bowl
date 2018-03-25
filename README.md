@@ -16,6 +16,7 @@ Identifing the cell's nuclei is the starting for most analyses. Identifying nucl
 
 # Solution
 1. [end-to-end training with U-Net](https://www.kaggle.com/fabsta/nuclei-segmentation-tensorflow-u-net-0-327-027909/notebook) *LB 0.327*
+本质是像素点0-1二元问题的分类模型，没有解决多细胞连接的分割困难，这也是得分不高的主要原因。
 2. [pixel-to-pixel mask R-CNN](https://drive.google.com/drive/folders/1EtBdlPK3BVahHBZtB103QQxNUdWaJ6di) *LB 0.463* *
 
 ## mask R-CNN
